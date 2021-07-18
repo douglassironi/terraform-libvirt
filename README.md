@@ -6,6 +6,8 @@ Repositorie with example to create a list of machine with terraform file and con
    - [install-cli](https://learn.hashicorp.com/tutorials/terraform/install-cli)
    - Install KVM Provider 
    - Libvirt Enviroment Installed.
+   - Template with cloud-init and qemu-guest-agent installed.
+
 ### Get Start
 - ##### Clone and init project.
 
