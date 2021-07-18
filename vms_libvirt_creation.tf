@@ -41,6 +41,7 @@ resource "libvirt_domain" "vm" {
   name = var.vm_machines[count.index]
   memory = "1024"
   vcpu = 1
+  qemu_agent = true
 
   cloudinit = libvirt_cloudinit_disk.commoninit[count.index].id
 
@@ -57,6 +58,12 @@ resource "libvirt_domain" "vm" {
  
 }
 
-output "ips" {
-  value = libvirt_domain.vm.*.network_interface.0.addresses
+# generate inventory file for Ansible
+resource "local_file" "hosts_cfg" {
+  content = templatefile("${path.module}/templates/hosts.tpl",
+    { 
+      vms_adresss = libvirt_domain.vm.*.network_interface.0.addresses.0
+    }
+  )
+  filename = "hosts.cfg"
 }
