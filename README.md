@@ -10,7 +10,7 @@ Repositorie with example to create a list of machine with terraform file and con
 - ##### Clone and init project.
 
 ```sh 
-https://github.com/douglassironi/terraform-libvirt.git
+git clone https://github.com/douglassironi/terraform-libvirt.git
 cd terraform-libvirt
 terraform init 
 ```
